@@ -1,49 +1,62 @@
 import { NavLink } from "react-router-dom";
-import React from "react";
 import Button from "../components/Button";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdClose } from "react-icons/io";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
+
   return (
-    <nav className="navbar">
-      {/* Logo */}
-      <div className="logo">
-        <img src="/img/logo 1.svg" alt="restaurant logo" />
-      </div>
+    <header className="navbar" role="banner">
+      <div className="navbar-container">
+        {/* Logo */}
+        <div className="logo">
+          <img src="/img/logo 1.svg" alt="Restaurant logo and brand" loading="lazy" />
+        </div>
 
-      {/* Links */}
-      <ul className="nav-links">
-        <li>
-          <NavLink to="/menu" className={({ isActive }) => (isActive ? "active-link" : "")}>
-            Menu
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/event" className={({ isActive }) => (isActive ? "active-link" : "")}>
-            Event
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/gallery" className={({ isActive }) => (isActive ? "active-link" : "")}>
-            Gallery
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/about" className={({ isActive }) => (isActive ? "active-link" : "")}>
-            About
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/contact" className={({ isActive }) => (isActive ? "active-link" : "")}>
-            Contact
-          </NavLink>
-        </li>
-      </ul>
+        {/* Toggle Button */}
+        <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
+          {isOpen ? <IoMdClose size={24} /> : <GiHamburgerMenu size={24} />}
+        </button>
 
-      {/* Button */}
-      <div className="nav-button">
-        <Button text="Book a table" />
+        {/* Nav Links */}
+        <nav className={`nav-menu ${isOpen ? "open" : ""}`} role="navigation" aria-label="Main navigation">
+          <ul className="nav-links">
+            <li>
+              <NavLink to="/menu" onClick={closeMenu} className={({ isActive }) => (isActive ? "active-link" : "")}>
+                Menu
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/event" onClick={closeMenu} className={({ isActive }) => (isActive ? "active-link" : "")}>
+                Event
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/gallery" onClick={closeMenu} className={({ isActive }) => (isActive ? "active-link" : "")}>
+                Gallery
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" onClick={closeMenu} className={({ isActive }) => (isActive ? "active-link" : "")}>
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact" onClick={closeMenu} className={({ isActive }) => (isActive ? "active-link" : "")}>
+                Contact
+              </NavLink>
+            </li>
+          </ul>
+          <div className="nav-button">
+            <Button aria-label="Book a table" text="Book a table" />
+          </div>
+        </nav>
       </div>
-    </nav>
+    </header>
   );
 };
 

@@ -1,0 +1,180 @@
+.about-page {
+  background-color: var(--background-color);
+}
+
+/* Hero Section */
+.about-hero {
+  height: 60vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url('/images/about-hero.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--link-color);
+}
+
+.about-hero-content {
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.about-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+  font-family: 'David Libre', serif;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  opacity: 0.9;
+}
+
+/* Swiper Styles */
+.about-swiper {
+  width: 100%;
+  height: 100vh;
+  max-height: 800px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Section Styles */
+.story-section,
+.philosophy-section,
+.team-section,
+.community-section,
+.future-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px;
+  background: var(--link-color);
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.story-section {
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+              url('/images/restaurant-story.jpg') center/cover no-repeat;
+}
+
+.philosophy-section {
+  background-color: var(--link-color);
+}
+
+.team-section {
+  background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+              url('/images/team-bg.jpg') center/cover no-repeat;
+}
+
+.community-section {
+  background-color: var(--link-color);
+}
+
+.future-section {
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+              url('/images/future-bg.jpg') center/cover no-repeat;
+}
+
+h2 {
+  color: var(--heading-color);
+  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  margin-bottom: 30px;
+  font-family: 'David Libre', serif;
+}
+
+p {
+  color: var(--text-color);
+  font-size: clamp(1rem, 1.1vw, 1.1rem);
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Swiper Navigation */
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--primary-color) !important;
+  background: rgba(255, 255, 255, 0.9);
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 20px !important;
+}
+
+/* Swiper Pagination */
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: var(--text-color);
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary-color);
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-hero {
+    height: 50vh;
+  }
+
+  .about-swiper {
+    height: 90vh;
+  }
+
+  .swiper-slide {
+    padding: 20px;
+  }
+
+  .story-section,
+  .philosophy-section,
+  .team-section,
+  .community-section,
+  .future-section {
+    padding: 40px 20px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    height: 40vh;
+  }
+
+  .about-swiper {
+    height: 80vh;
+  }
+
+  .story-section,
+  .philosophy-section,
+  .team-section,
+  .community-section,
+  .future-section {
+    padding: 30px 15px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+} 
